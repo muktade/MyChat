@@ -67,20 +67,22 @@ public class SignIn extends AppCompatActivity {
                             }
                         });
 
-                binding.txClickSignUp.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(SignIn.this, SignUp.class);
-                        startActivity(intent);
-                    }
-                });
-
-                if(auth.getCurrentUser()!= null){
-                     Intent intent= new Intent(SignIn.this, MainActivity.class);
-                     startActivity(intent);
-                }
             }
         });
+
+        binding.txClickSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignIn.this, SignUp.class);
+                startActivity(intent);
+            }
+        });
+
+        if(auth.getCurrentUser()!= null){
+            Intent intent= new Intent(SignIn.this, MainActivity.class);
+            startActivity(intent);
+        }
+
 
     }
 }
