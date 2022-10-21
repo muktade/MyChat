@@ -43,6 +43,9 @@ public class SignIn extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        //google sign in
+         
+
         ////
         binding.btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
