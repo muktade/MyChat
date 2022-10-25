@@ -64,12 +64,12 @@ public class SignIn extends AppCompatActivity {
         getSupportActionBar().hide();
 
         //google sign in
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
 
-        googleSignInClient = GoogleSignIn.getClient(this, gso);
+//        googleSignInClient = GoogleSignIn.getClient(this, gso);
 
         ////
         binding.btnLogIn.setOnClickListener(new View.OnClickListener() {
