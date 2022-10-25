@@ -23,12 +23,9 @@
 
             <ImageView
                 android:id="@+id/profileImage"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:outlineAmbientShadowColor="#FFFFFF"
-                android:padding="5dp"
-                android:paddingLeft="20dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/about" />
 
