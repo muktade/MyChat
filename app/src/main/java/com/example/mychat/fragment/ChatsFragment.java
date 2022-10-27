@@ -35,12 +35,13 @@ public class ChatsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        database = FirebaseDatabase.getInstance();
+
         // Inflate the layout for this fragment
         fragmentChatsBinding = FragmentChatsBinding.inflate(inflater, container, false);
 
         UsersAdapter usersAdapter = new UsersAdapter(list, getContext());
         fragmentChatsBinding.chatRecyclerView.setAdapter(usersAdapter);
-        database = FirebaseDatabase.getInstance();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         fragmentChatsBinding.chatRecyclerView.setLayoutManager(linearLayoutManager);
@@ -54,8 +55,9 @@ public class ChatsFragment extends Fragment {
                         list.clear();
                         for(DataSnapshot dataSnapshot: snapshot.getChildren()){
                             Users users = dataSnapshot.getValue(Users.class);
-                            users.getUserId(dataSnapshot.getKey());
+                            users.setUserId(dataSnapshot.getKey());
                             list.add(users);
+
                         }
                         usersAdapter.notifyDataSetChanged();
                     }

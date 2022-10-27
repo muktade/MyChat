@@ -43,6 +43,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
                 .into(holder.imageView);
 
         holder.userName.setText(users.getUserName());
+        holder.lastMessage.setText(users.getLastMessage());
     }
 
     @Override
