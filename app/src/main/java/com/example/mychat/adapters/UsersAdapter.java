@@ -18,6 +18,23 @@ import java.util.ArrayList;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
+    ///
+    public class ViewHolder extends RecyclerView.ViewHolder{
+
+        ImageView image;
+        TextView userName, lastMessage;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            image = itemView.findViewById(R.id.profileImage);
+            userName = itemView.findViewById(R.id.userName);
+            lastMessage = itemView.findViewById(R.id.lastMessage);
+
+
+        }
+    }
+
+    ///////
     ArrayList<Users> list;
     Context context;
 
@@ -40,7 +57,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
 
         Users users = list.get(position);
         Picasso.get().load(users.getProfilePic()).placeholder(R.drawable.about)
-                .into(holder.imageView);
+                .into(holder.image);
 
         holder.userName.setText(users.getUserName());
         holder.lastMessage.setText(users.getLastMessage());
@@ -51,17 +68,5 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder>{
         return list.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView imageView;
-        TextView userName, lastMessage;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            imageView= itemView.findViewById(R.id.profileImage);
-            userName = itemView.findViewById(R.id.userName);
-            imageView = itemView.findViewById(R.id.profileImage);
-            lastMessage = itemView.findViewById(R.id.lastMessage);
-        }
-    }
 }

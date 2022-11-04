@@ -15,8 +15,8 @@
         app:cardCornerRadius="250dp">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_gravity="center"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="250dp">
@@ -58,7 +58,8 @@
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
-            android:text="Last Message" />
+            android:text="Last Message"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
