@@ -1,6 +1,8 @@
 package com.example.mychat;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,6 +26,8 @@ public class ChatDetailActivity extends AppCompatActivity {
         binding = ActivityChatDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getSupportActionBar().hide();
+
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
 
@@ -34,6 +38,14 @@ public class ChatDetailActivity extends AppCompatActivity {
 
         binding.userName.setText(userName);
         Picasso.get().load(profilePic).placeholder(R.drawable.about).into(binding.profileImage);
+
+        binding.backArraw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ChatDetailActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }

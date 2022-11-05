@@ -106,11 +106,11 @@
                 tools:ignore="MissingConstraints" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/backArraw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_marginEnd="2dp"
+                android:layout_marginEnd="10dp"
                 android:src="@drawable/ic_baseline_arrow_left_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/cardView"
@@ -139,6 +139,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -149,16 +150,23 @@
                 <ImageView
                     android:id="@+id/profileImage"
                     android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
                     android:outlineAmbientShadowColor="#FFFFFF"
                     android:scaleType="centerCrop"
                     android:src="@drawable/about"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintStart_toEndOf="@+id/backArraw"
                     app:layout_constraintTop_toTopOf="@+id/cardView" />
 
 
             </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
