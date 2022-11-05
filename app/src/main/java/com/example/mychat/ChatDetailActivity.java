@@ -2,23 +2,20 @@ package com.example.mychat;
 
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.example.mychat.databinding.ActivityChatDetailBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class ChatDetailActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityChatDetailBinding binding;
+    private FirebaseDatabase database;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,25 +24,18 @@ public class ChatDetailActivity extends AppCompatActivity {
         binding = ActivityChatDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.toolbar);
+        database = FirebaseDatabase.getInstance();
+        auth = FirebaseAuth.getInstance();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_chat_detail);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        String senderId = auth.getUid();
+        String recieveId = getIntent().getStringExtra("userId");
+        String userName = getIntent().getStringExtra("userName");
+        String profilePic = getIntent().getStringExtra("profilePic");
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        binding.userName.setText(userName);
+        Picasso.get().load(profilePic).placeholder(R.drawable.about).into(binding.profileImage);
+
+
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_chat_detail);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
 }
